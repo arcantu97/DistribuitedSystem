@@ -9,6 +9,7 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.lang.management.ManagementFactory;
 import java.lang.management.OperatingSystemMXBean;
@@ -36,6 +37,11 @@ public class Proyecto {
             soyServidor = true;
             //Mientras sea servidor realiza el proceso de servidor
             if (soyServidor) {
+                Interfaz gui = new Interfaz();
+                gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                gui.setSize(1000, 600);
+                gui.pack();
+                gui.setVisible(true);
                 Proyecto proy = new Proyecto(port);
                 proy.run();
                 /*
